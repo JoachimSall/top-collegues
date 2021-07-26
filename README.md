@@ -6,7 +6,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Site
 https://joachimsall.github.io/top-collegues/
 
-##Travis
+## Travis
 [![Build Status](https://travis-ci.com/JoachimSall/top-collegues.svg?branch=main)](https://travis-ci.com/JoachimSall/top-collegues)
 
 ## Development server
