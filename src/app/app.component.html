@@ -342,7 +342,6 @@
     </svg>
 
     <span>{{ title }} app is running!</span>
-    <button>Test bootstrap</button>
 
     <svg id="rocket-smoke" xmlns="http://www.w3.org/2000/svg" width="516.119" height="1083.632" viewBox="0 0 516.119 1083.632">
       <title>Rocket Ship Smoke</title>
@@ -350,7 +349,18 @@
     </svg>
 
   </div>
-  <button type="button" class="btn btn-primary">Test bootstrap</button> <i class="bi bi-alarm"></i>
+  <button type="button" class="btn btn-primary">Test bootstrap</button>
+  <div class="btn-group btn-group-toggle">
+    <label class="btn-primary" ngbButtonLabel>
+      <input type="checkbox"> Left (pre-checked)
+    </label>
+    <label class="btn-primary" ngbButtonLabel>
+      <input type="checkbox"> Middle
+    </label>
+    <label class="btn-primary" ngbButtonLabel>
+      <input type="checkbox"> Right
+    </label>
+  </div>
 
   <!-- Resources -->
   <h2>Resources</h2>
