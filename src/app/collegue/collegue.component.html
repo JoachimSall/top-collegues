@@ -1,0 +1,5 @@
+<img [src]="c.photoUrl">
+<p [textContent] = "c.pseudo" ></p>
+<p [textContent] = "c.score" ></p>
+<app-avis (test)="c.score = 345"></app-avis>
+{{c.score}}
