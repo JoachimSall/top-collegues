@@ -1,5 +1,6 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import {Avis} from './../model'
+import { DataService } from './../services/data.service';
+import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
+import {Avis} from '../models'
 
 @Component({
   selector: 'app-avis',
@@ -8,7 +9,13 @@ import {Avis} from './../model'
 })
 export class AvisComponent implements OnInit {
 
-  @Output("test") avis = new EventEmitter<Avis>();
+  @Output() avis = new EventEmitter<Avis>();
+
+  @Input() desactiveJaime = false;
+
+  @Input() desactiveDeteste = false;
+
+  constructor() { }
 
   aimer(){
     this.avis.emit(Avis.AIMER)
@@ -17,8 +24,6 @@ export class AvisComponent implements OnInit {
   detester(){
     this.avis.emit(Avis.DETESTER)
   }
-
-  constructor() { }
 
   ngOnInit(): void {
   }

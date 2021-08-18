@@ -1,2 +1,2 @@
-<button (click)="aimer()" type="button" class="btn btn-success">J'aime</button>
-<button (click)="detester()" type="button" class="btn btn-danger">Je n'aime pas</button>
+<button (click)="aimer()" [disabled]="desactiveJaime" type="button" class="btn btn-success">J'aime</button>
+<button (click)="detester()" [disabled]="desactiveDeteste" type="button" class="btn btn-danger">Je n'aime pas</button>

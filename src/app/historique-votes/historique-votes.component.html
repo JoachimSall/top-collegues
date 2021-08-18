@@ -1,0 +1,13 @@
+<h2>Historique</h2>
+<div *ngFor=" let vote of votes let i= index;">
+  <img [src] = "vote.collegue.photo">
+  <h3>{{ vote.collegue.pseudo }}</h3>
+  <ng-container *ngIf=" vote.avis === Avis.AIMER; else deteste">
+    <p>{{ vote.collegue.pseudo }} est aimé et a désormais un score de {{ vote.collegue.score }}</p>
+  </ng-container>
+  <ng-template #deteste>
+    <p>{{ vote.collegue.pseudo }} est détesté et a désormais un score de {{ vote.collegue.score }}</p>
+  </ng-template>
+  <ng-template #autre></ng-template>
+  <button (click)="supprimerVote(i)" class="btn btn-danger">Supprimer</button>
+</div>

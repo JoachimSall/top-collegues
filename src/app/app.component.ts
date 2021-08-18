@@ -1,3 +1,4 @@
+import { mockCollegues } from './mockData';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,7 +8,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'top-collegues';
-
 
   ngAfterViewInit(): void {
 

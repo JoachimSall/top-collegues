@@ -1,0 +1,8 @@
+<!-- <div *ngFor="let collegue of collegues" >
+  <app-collegue [collegue] = collegue></app-collegue>
+</div> -->
+<div *ngIf="collegues$ | async as collegues">
+  <div *ngFor="let collegue of collegues" >
+    <app-collegue [collegue] = collegue></app-collegue>
+  </div>
+</div>

@@ -1,5 +1,18 @@
-<img [src]="c.photoUrl">
-<p [textContent] = "c.pseudo" ></p>
-<p [textContent] = "c.score" ></p>
-<app-avis (test)="c.score = 345"></app-avis>
-{{c.score}}
+<!-- <div *ngFor="let collegue of this.service.listerCollegues" >
+  <img [src]="collegue.photoUrl">
+  <p [textContent] = "collegue.pseudo" ></p>
+  <p [textContent] = "collegue.score" ></p>
+</div> -->
+
+<ng-container *ngIf="collegue;">
+  <div>
+    <img [src]="collegue.photo">
+    <p>{{ collegue.pseudo | uppercase }}</p>
+    <p>{{ collegue.score | score }}</p>
+    <app-avis
+      (avis)="changerScore($event)"
+      [desactiveJaime]="desactiverJaime()"
+      [desactiveDeteste]="desactiverDeteste()"
+    ></app-avis>
+  </div>
+</ng-container>

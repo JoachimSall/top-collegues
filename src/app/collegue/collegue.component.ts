@@ -1,5 +1,8 @@
+import { DataService } from './../services/data.service';
 import { Component, Input, OnInit, Output } from '@angular/core';
-import {Collegue, Avis} from './../model';
+import {Collegue, Avis} from '../models';
+import { HttpClient } from '@angular/common/http';
+import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-collegue',
@@ -8,23 +11,48 @@ import {Collegue, Avis} from './../model';
 })
 export class CollegueComponent implements OnInit {
 
-  c: Collegue = {
+  @Input() collegue? : Collegue = {
     pseudo: 'Jean Miche Miche',
     score: 0,
-    photoUrl:'https://thispersondoesnotexist.com/image'
+    photo: 'https://thispersondoesnotexist.com/image'
   }
-  constructor() { }
+  err = false;
+
+  constructor(public service : DataService){ }
+
+
+  //collegue?: Collegue;
+
+  ngOnInit(): void {
+  }
 
   changerScore(avis: Avis){
-    console.log("test");
 
     if(avis === Avis.AIMER){
-      this.c.score += 1
+      this.collegue!.score += 100
     } else if (avis === Avis.DETESTER){
-      this.c.score -= 1
+      this.collegue!.score -= 100
     }
+    this.service.donnerUnAvis(this.collegue!, avis)
+
+    //TP rxjs
+    // if (this.collegue){
+    //   this.service.donnerUnAvisObs(this.collegue!, avis)
+    //   .subscribe(
+    //     collegue => this.collegue = collegue,
+    //     () => this.err = false
+    //     )
+    // }
+
+
   }
-  ngOnInit(): void {
+
+  desactiverJaime(): boolean {
+    return this.collegue!.score >= 1000
+  }
+
+  desactiverDeteste(): boolean {
+    return this.collegue!.score <= -1000
   }
 
 }
